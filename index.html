@@ -91,7 +91,13 @@
 		//create one circle when the game starts
 		this.createNewCircle(document.body.clientWidth/2, document.body.clientHeight/2);
 	}
-
+	
+	document.getElementsByTagName("BODY")[0].onresize = function() {resizeWindow()};
+	
+	function resizeWindow(){
+		svg.setAttribute("width", document.body.clientWidth);
+		svg.setAttribute("height", document.body.clientHeight);
+	}
 	var playground = new PlayGround();
 	setInterval(playground.loop, 15);
 
